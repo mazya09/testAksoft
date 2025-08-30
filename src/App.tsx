@@ -1,35 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { JSX, useState } from 'react';
+import { Layout } from 'antd';
+import { Routes, Route } from 'react-router-dom';
+import { AppRoute, routes } from './components/routes';
+import { Sidebar } from './components/Sidebar';
 
-function App() {
-  const [count, setCount] = useState(0)
+const { Content } = Layout;
+
+  const renderRoutes = (routes: AppRoute[]): JSX.Element[] =>
+  routes.flatMap((r) => {
+    if (r.children) return renderRoutes(r.children);
+    if (r.path && r.component) {
+      const Component = r.component;
+      return <Route key={r.key} path={r.path} element={<Component />} />;
+    }
+    return [];
+  });
+
+export const App: React.FC = () => {
+  const [collapsed, setCollapsed] = useState<boolean>(false);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <Layout style={{ minHeight: '100vh' }}>
+      <Sidebar collapsed={collapsed} setCollapsed={setCollapsed} />
+      <Layout>
+        <Content style={{ margin: 16 }}>
+          <Routes>{renderRoutes(routes)}</Routes>
+        </Content>
+      </Layout>
+    </Layout>
 
-export default App
+  );
+};

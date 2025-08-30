@@ -1,0 +1,43 @@
+/* Sider контейнер */
+.sidebar {
+  background-color: #fff;
+  border-right: 1px solid #f0f0f0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.2s ease;
+}
+
+.sidebar-expanded {
+  width: 200px !important;
+}
+
+.sidebar-collapsed {
+  width: 80px !important;
+}
+
+.sidebar-menu {
+  flex: 1;
+  border-right: 0;
+  background-color: transparent;
+}
+.sidebar-menu .ant-menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 16px;
+}
+
+.sidebar-menu .ant-menu-item .anticon {
+  font-size: 18px;
+}
+
+.sidebar-collapsed .ant-menu-item span {
+  display: none;
+}
+
+.ant-layout-sider-trigger {
+  background-color: #f0f0f0;
+  text-align: center;
+  cursor: pointer;
+}

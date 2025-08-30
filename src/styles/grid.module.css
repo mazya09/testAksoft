@@ -1,0 +1,68 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  height: 100%;
+  overflow: hidden;
+}
+.leftCol {
+  background: #fff;
+  border-right: 1px solid #f0f0f0;
+  overflow: auto;
+}
+.rightCols {
+  overflow: auto;
+}
+.timeCell {
+  height: 48px;
+  border-bottom: 1px solid #f5f5f5;
+  font-size: 11px;
+  color: #888;
+  padding: 6px 8px;
+}
+.doctorCol {
+  min-width: 280px;
+  border-right: 1px solid #f0f0f0;
+  background: #fafafa;
+}
+.doctorSticky {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: #fff;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 8px 12px;
+}
+.slot {
+  height: 48px;
+  border-bottom: 1px solid #f5f5f5;
+  padding: 6px;
+}
+.card {
+  height: 100%;
+  border-radius: 10px;
+  color: #fff;
+  padding: 8px;
+  font-size: 12px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.cardTime {
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 14px;
+}
+.cardName {
+  font-size: 12px;
+  line-height: 16px;
+}
+.tooltip {
+  max-width: 280px;
+}
+.statusArrived {
+  background: #52c41a;
+}
+.statusPending {
+  background: #faad14;
+}
+.statusCancelled {
+  background: #ff4d4f;
+}
